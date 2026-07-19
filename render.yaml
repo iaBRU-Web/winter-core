@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: winter-ai-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        sync: false   # Set this in Render dashboard to your Vercel URL e.g. https://winter-ai.vercel.app
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
